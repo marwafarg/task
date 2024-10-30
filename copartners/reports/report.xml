@@ -1,0 +1,97 @@
+<odoo>
+    <data>
+    <report
+                   id="custom_copartner_report"
+                   model="copartner"
+                   report_type="qweb-pdf"
+                   string=" copartner "
+                   name="copartners.custom_template_for_copartners"
+                   file="copartners.custom_template_for_copartners"
+               />
+
+ <template id="custom_template_for_copartners">
+            <t t-call="web.html_container">
+
+
+
+    <t t-call="web.basic_layout">
+                                <t t-foreach="docs" t-as="doc">
+
+       <table style="border-collapse: collapse;width: 100%;">
+  <tr style="border-bottom: 2px solid #ddd;">
+<th>Field Nmae</th>
+    <th>Value</th>
+
+  </tr>
+  <tr style="border-bottom: 1px solid #ddd;">
+    <td>copartner Name</td>
+       <td><p><t t-esc="doc.name"/></p></td>
+
+
+  </tr>
+  <tr style="border-bottom: 1px solid #ddd;">
+    <td>Gender</td>
+    <td> <p><t t-esc="doc.gender"/></p></td>
+
+  </tr>
+  <tr style="border-bottom: 1px solid #ddd;">
+    <td>Country</td>
+    <td><p><t t-esc="doc.country"/></p></td>
+
+  </tr>
+  <tr style="border-bottom: 1px solid #ddd;">
+    <td>Joining Date</td>
+    <td><p><t t-esc="doc.joining_date"/></p></td>
+
+  </tr>
+
+  <tr style="border-bottom: 1px solid #ddd;">
+    <td>Tags</td>
+    <td>
+        <t t-foreach="doc.tags" t-as="val">
+                <p><t t-esc="val.name"/></p>
+        </t>
+
+    </td>
+
+  </tr>
+
+
+  <tr style="border-bottom: 1px solid #ddd;">
+    <td>Customers</td>
+    <td>
+        <t t-foreach="doc.customer_ids" t-as="val">
+                <p><t t-esc="val.name"/></p>
+        </t>
+
+    </td>
+
+  </tr>
+  <tr style="border-bottom: 1px solid #ddd;">
+    <td>Company</td>
+    <td><p><t t-esc="doc.company_id.name"/></p></td>
+
+  </tr>
+  <tr style="border-bottom: 1px solid #ddd;">
+    <td>Notes</td>
+    <td><p><t t-esc="doc.notes"/></p></td>
+
+  </tr>
+  <tr style="border-bottom: 1px solid #ddd;">
+    <td>Comments</td>
+    <td><p><t t-esc="doc.comments"/></p></td>
+
+  </tr>
+</table>
+
+            </t>
+
+
+                    </t>
+                </t>
+        </template>
+
+
+
+    </data>
+</odoo>
